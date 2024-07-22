@@ -4,8 +4,6 @@
 ___
 #### init client
 
-The initialization of the client seems correct. No issues here.
-
 ```py
 from scr import HamsterApiRequests
 
