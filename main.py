@@ -6,7 +6,7 @@ Example of usage
 
 """
 
-from scr import HamsterApiRequests
+from src import HamsterApiRequests
 
 def get_timestamp():
     current_timestamp_seconds = time.time()
@@ -20,6 +20,10 @@ async def main():
     await client.buy_update(upgradeId="oracle", timestamp=get_timestamp()) # покупка карточки по ID
 
     await client.tap(taps_count=8000, availableTaps=8000, timestamp=get_timestamp()) # использование сразу всех доступных нажатий
+
+    cipher = await client.get_cipher(word="BIP") # получение ежедневного шифра
+    if not cipher.error:
+        print(cipher.bonusCoins)
 
 
 if __name__ in "__main__":

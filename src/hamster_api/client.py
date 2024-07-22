@@ -1,5 +1,8 @@
-from scr.utils import TOKEN
-from scr.requests.sessions import SessionRequests
+from src.utils import TOKEN
+from src.requests.sessions import SessionRequests
+from src.hamster_api.objects import DailyCipher
+
+from typing import Any
 
 class HamsterApiRequests(SessionRequests):
     def __init__(self) -> None:
@@ -39,3 +42,14 @@ class HamsterApiRequests(SessionRequests):
 
         return result
 
+
+    async def get_cipher(self, word: str) -> DailyCipher:
+        result: dict[str, Any] = await self.post(
+            url=self.end_point.format("clicker/claim-daily-cipher"),
+            headers=self.headers,
+            json={"cipher": word}
+        )
+
+        return DailyCipher(data=result)
+
+        
