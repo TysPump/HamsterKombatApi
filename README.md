@@ -72,4 +72,4 @@ if (location.hostname === "hamsterkombatgame.io") {
 
 6. In the request headers, copy the Authorization bearer Token.
 
-![Authorization token example](image-1.png)
+![Authorization token example](https://habrastorage.org/webt/s4/q8/sw/s4q8sw02fy_y1_wgbyn-osio-is.png)
