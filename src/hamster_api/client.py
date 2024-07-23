@@ -1,6 +1,6 @@
 from src.utils import TOKEN
 from src.requests.sessions import SessionRequests
-from src.hamster_api.objects import DailyCipher
+from src.hamster_api.objects import DailyCipher, Upgrades
 
 from typing import Any
 
@@ -51,4 +51,11 @@ class HamsterApiRequests(SessionRequests):
 
         return DailyCipher.mixed_dict(data=result)
 
+    async def get_upgrades(self) -> Upgrades:
+        result: dict[str, Any] = await self.post(
+            url=self.end_point.format("clicker/upgrades-for-buy"),
+            headers=self.headers
+        )
+
+        return Upgrades(**result)
         

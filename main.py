@@ -25,6 +25,9 @@ async def main():
     if not cipher.error:
         print(cipher.bonusCoins)
 
+    cards = await client.get_upgrades() # получаем все доступные к покупке карточки
+    print(cards.upgradesForBuy)
+
 
 if __name__ in "__main__":
     asyncio.run(main())

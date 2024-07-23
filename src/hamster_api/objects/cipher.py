@@ -1,5 +1,4 @@
-from pydantic import BaseModel
-from typing import Optional, Union, Dict
+from . import BaseModel, Optional, Union, Dict
 
 class DailyCipher(BaseModel):
     error: Optional[str] = None
