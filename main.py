@@ -28,6 +28,10 @@ async def main():
     cards = await client.get_upgrades() # получаем все доступные к покупке карточки
     print(cards.upgradesForBuy)
 
+    referrals: list[dict, any] = await client.get_referrals() # получаем список рефералов
+
+    await client.change_exchange(exchangeId="bybit") # смена биржи
+
 
 if __name__ in "__main__":
     asyncio.run(main())

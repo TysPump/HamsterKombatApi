@@ -59,3 +59,17 @@ class HamsterApiRequests(SessionRequests):
 
         return Upgrades(**result)
         
+    async def get_referrals(self) -> list[dict, Any]:
+        result: dict[list, Any] = await self.post(
+            url=self.end_point.format("clicker/referral-stat"),
+            headers=self.headers
+        )
+
+        return result["stats"]
+    
+    async def change_exchange(self, exchangeId: str) -> None:
+        await self.post(
+            url=self.end_point.format("clicker/select-exchange"),
+            headers=self.headers,
+            json={"exchangeId": exchangeId}
+        )
